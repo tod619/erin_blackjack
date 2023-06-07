@@ -152,6 +152,9 @@ def play_game():
     blackjack_deck.create_deck()
     blackjack_deck.shuffle()
 
+    # Flag to end the game
+    is_game_over = False
+
     # Create Player hand + computer hand for the game
     player_hand = Hand()
     computer_hand = Hand()
@@ -165,6 +168,18 @@ def play_game():
 
     print(player_hand)
     print(computer_hand)
+
+    # get player + computer hand totals
+    user_score = player_hand.hand_total()
+    computer_score = computer_hand.hand_total()
+
+    print(user_score)
+    print(computer_score)
+
+    blackjack_deck.deal([player_hand])
+    print(player_hand)
+    user_score = player_hand.hand_total()
+    print(user_score)
 
 
 play_game()
