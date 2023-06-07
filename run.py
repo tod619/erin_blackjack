@@ -123,24 +123,48 @@ class Deck(Hand):
                     print("Can't deal anymore. Out of cards")
 
 
-card1 = Card(Card.RANKS[1], Card.SUITS[1])
-print(card1)
-value1 = card1.return_card_value()
-print(value1)
-card2 = Card(Card.RANKS[2], Card.SUITS[0])
-print(card2)
-value2 = card2.return_card_value()
-print(value2)
+# card1 = Card(Card.RANKS[1], Card.SUITS[1])
+# print(card1)
+# value1 = card1.return_card_value()
+# print(value1)
+# card2 = Card(Card.RANKS[2], Card.SUITS[0])
+# print(card2)
+# value2 = card2.return_card_value()
+# print(value2)
 
-my_hand = Hand()
-my_hand.add(card1)
-my_hand.add(card2)
-print(my_hand)
-hand_value = my_hand.hand_total()
-print(hand_value)
+# my_hand = Hand()
+# my_hand.add(card1)
+# my_hand.add(card2)
+# print(my_hand)
+# hand_value = my_hand.hand_total()
+# print(hand_value)
 
-deck = Deck()
-deck.create_deck()
-print(deck)
-deck.shuffle()
-print(deck)
+# deck = Deck()
+# deck.create_deck()
+# print(deck)
+# deck.shuffle()
+# print(deck)
+
+def play_game():
+    """ A Function that allows the user to play a game of Blackjack against the computer """
+    # Create a deck of cards for the game + shuffle them
+    blackjack_deck = Deck()
+    blackjack_deck.create_deck()
+    blackjack_deck.shuffle()
+
+    # Create Player hand + computer hand for the game
+    player_hand = Hand()
+    computer_hand = Hand()
+
+    players = []
+    players.append(player_hand)
+    players.append(computer_hand)
+
+    # Deal cards to the player + the computer
+    blackjack_deck.deal(players, 2)
+
+    print(player_hand)
+    print(computer_hand)
+
+
+play_game()
