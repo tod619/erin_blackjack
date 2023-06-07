@@ -33,14 +33,114 @@ class Card():
             print("<Value not in cards>")
 
 
-card1 = Card(Card.RANKS[1], Card.SUITS[3])
+# card1 = Card(Card.RANKS[1], Card.SUITS[3])
+# print(card1)
+# print(card1.return_card_value())
+
+# card2 = Card(Card.RANKS[0], Card.SUITS[0])
+# print(card2)
+# print(card2.return_card_value())
+
+# card3 = Card(Card.RANKS[4], Card.SUITS[2])
+# print(card3)
+# print(card3.return_card_value())
+class Hand():
+    """
+    A hand of playing cards
+    """
+
+    def __init__(self):
+        self.cards = []
+
+    def __str__(self):
+        if self.cards:
+            rep = ""
+            for card in self.cards:
+                rep += f"{str(card)} \t"
+        else:
+            rep = "<EMPTY>"
+        return rep
+
+    def clear(self):
+        """
+        Emptying every hand and deck when initially called
+        """
+        self.cards = []
+
+    def add(self, card):
+        """
+        Give card to hand when game begins
+        """
+        self.cards.append(card)
+
+    def give(self, card, other_hand):
+        """
+        Give cards to both players
+        """
+        self.cards.remove(card)
+        other_hand.add(card)
+
+    def hand_total(self):
+        """
+        Return the total value of cards in the hand
+        """
+        total = 0
+        for card in self.cards:
+            total += card.return_card_value()
+        return total
+
+
+class Deck(Hand):
+    """
+    This class creates a full deck of playing cards
+    """
+
+    def create_deck(self):
+        """
+        Loop through the suits and ranks, create cards and add them to the deck
+        """
+        for suit in Card.SUITS:
+            for rank in Card.RANKS:
+                self.add(Card(rank, suit))
+
+    def shuffle(self):
+        """
+        Use the random module and built in shuffle method to shuffle the deck
+        """
+        import random
+        random.shuffle(self.cards)
+
+    def deal(self, hands, per_hand=1):
+        """
+        Deal cards
+        """
+        for rounds in range(per_hand):
+            for hand in hands:
+                if self.cards:
+                    top_card = self.cards[0]
+                    self.give(top_card, hand)
+                else:
+                    print("Can't deal anymore. Out of cards")
+
+
+card1 = Card(Card.RANKS[1], Card.SUITS[1])
 print(card1)
-print(card1.return_card_value())
-
-card2 = Card(Card.RANKS[0], Card.SUITS[0])
+value1 = card1.return_card_value()
+print(value1)
+card2 = Card(Card.RANKS[2], Card.SUITS[0])
 print(card2)
-print(card2.return_card_value())
+value2 = card2.return_card_value()
+print(value2)
 
-card3 = Card(Card.RANKS[4], Card.SUITS[2])
-print(card3)
-print(card3.return_card_value())
+my_hand = Hand()
+my_hand.add(card1)
+my_hand.add(card2)
+print(my_hand)
+hand_value = my_hand.hand_total()
+print(hand_value)
+
+deck = Deck()
+deck.create_deck()
+print(deck)
+deck.shuffle()
+print(deck)
