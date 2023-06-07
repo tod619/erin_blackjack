@@ -26,8 +26,11 @@ class Card():
 
     #     return value
     def return_card_value(self):
-        value = Card.NUMBER_VALUE[self.rank]
-        return value
+        try:
+            value = Card.NUMBER_VALUE[self.rank]
+            return value
+        except:
+            print("<Value not in cards>")
 
 
 card1 = Card(Card.RANKS[1], Card.SUITS[3])
