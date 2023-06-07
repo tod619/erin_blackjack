@@ -176,7 +176,15 @@ def play_game():
     print(user_score)
     print(computer_score)
 
-    blackjack_deck.deal([player_hand])
+    if user_score > 21:
+        is_game_over = True
+    else:
+        user_hit = input("Type 'y' to hit or 'n' to stand: ").lower()
+        if user_hit == 'y':
+            blackjack_deck.deal([player_hand])
+        else:
+            is_game_over = True
+
     print(player_hand)
     user_score = player_hand.hand_total()
     print(user_score)
