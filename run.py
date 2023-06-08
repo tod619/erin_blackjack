@@ -256,5 +256,17 @@ def play_game():
     result = compare_score(user_score, computer_score)
     print(result)
 
+    # Clear the hands + deck for the next round
+    blackjack_deck.clear()
+    player_hand.clear()
+    computer_hand.clear()
 
+
+play_again = True
 play_game()
+while play_again:
+    play = input("Would you like to play again 'y' or 'n': ").lower()
+    if play == 'y':
+        play_game()
+    else:
+        play_again = False
