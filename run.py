@@ -158,6 +158,24 @@ class Deck(Hand):
 # deck.shuffle()
 # print(deck)
 
+def compare_score(score1, score2):
+    """ Compare the score value of each hand and determine a winner """
+    if score1 == score2:
+        return "It's a draw!"
+    elif score2 == 21:
+        return "Computer wins! Blackjack!!!"
+    elif score1 == 21:
+        return "Player wins! Blackjack!!!"
+    elif score1 > 21:
+        return "Player went bust! Player loses! Computer Wins!!!"
+    elif score2 > 21:
+        return "Computer went bust! Computer loses! Player Wins!!!"
+    elif score1 > score2:
+        return "Player closest to 21. Player wins!!!"
+    else:
+        return "Computer closest to 21. Computer Wins!!!"
+
+
 def play_game():
     """ A Function that allows the user to play a game of Blackjack against the computer """
     # Create a deck of cards for the game + shuffle them
@@ -234,6 +252,9 @@ def play_game():
     print(f"Player Hand total: {user_score}")
     print(f"Computer Cards: {computer_hand}")
     print(f"Computer Hand total: {computer_score}")
+
+    result = compare_score(user_score, computer_score)
+    print(result)
 
 
 play_game()
