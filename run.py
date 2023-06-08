@@ -9,6 +9,7 @@ class Card():
     SUITS = ["\u2663", "\u2665", "\u2666", "\u2660"]
     NUMBER_VALUE = {"A": 11, "2": 2, "3": 3, "4": 4, "5": 5, "6": 6, "7": 7, "8": 8,
                     "9": 9, "10": 10, "J": 10, "Q": 10, "K": 10, }
+    ACE_VALUE = 11
 
     def __init__(self, rank, suit):
         self.rank = rank
@@ -87,6 +88,18 @@ class Hand():
         total = 0
         for card in self.cards:
             total += card.return_card_value()
+
+        # Determine if there is an ACE in the hand of cards
+        contains_ace = False
+        for card in self.cards:
+            if card.return_card_value() == Card.ACE_VALUE:
+                contains_ace = True
+
+        # If the hand contains an ace and the total goes over 21 treat the ace card as a 1
+        if contains_ace and total > 21:
+            total -= 10
+
+        # return the total
         return total
 
 
