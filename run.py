@@ -209,7 +209,7 @@ def play_game():
     # print(computer_score)
     while not is_game_over:
         user_score = player_hand.hand_total()
-        computer_score = player_hand.hand_total()
+        computer_score = computer_hand.hand_total()
 
         print(player_hand)
         print(user_score)
