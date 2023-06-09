@@ -176,6 +176,14 @@ def compare_score(score1, score2):
         return "Computer closest to 21. Computer Wins!!!"
 
 
+def ask_yes_no(question):
+    """ A function that only allows the user to answer 'y' or 'n' """
+    response = None
+    while response not in ("y", "n"):
+        response = input(question).lower()
+    return response
+
+
 def play_game():
     """ A Function that allows the user to play a game of Blackjack against the computer """
     # Create a deck of cards for the game + shuffle them
