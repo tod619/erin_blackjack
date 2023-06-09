@@ -218,7 +218,8 @@ def play_game():
     if user_score > 21:
         is_game_over = True
     else:
-        user_hit = input("Type 'y' to hit or 'n' to stand: ").lower()
+        # user_hit = input("Type 'y' to hit or 'n' to stand: ").lower()
+        user_hit = ask_yes_no("Type 'y' to hit or 'n' to stand: ")
         if user_hit == 'y':
             blackjack_deck.deal([player_hand])
         else:
@@ -246,7 +247,8 @@ def play_game():
         if user_score > 21:
             is_game_over = True
         else:
-            user_hit = input("Type 'y' to hit or 'n' to stand: ").lower()
+            # user_hit = input("Type 'y' to hit or 'n' to stand: ").lower()
+            user_hit = ask_yes_no("Type 'y' to hit or 'n' to stand: ")
             if user_hit == 'y':
                 blackjack_deck.deal([player_hand])
             else:
@@ -287,8 +289,9 @@ def show_menu():
             play_again = True
             play_game()
             while play_again:
-                play = input(
-                    "Would you like to play again 'y' or 'n': ").lower()
+                # play = input(
+                #     "Would you like to play again 'y' or 'n': ").lower()
+                play = ask_yes_no("Would you like to play again 'y' or 'n': ")
                 if play == 'y':
                     play_game()
                 else:
