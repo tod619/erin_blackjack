@@ -272,40 +272,6 @@ def play_game():
     computer_hand.clear()
 
 
-def show_menu():
-    """ Show the art, the menu, and loop through the options and allow the player to quit"""
-    # quit = False
-
-    print("Press 1 to view the rules.")
-    print("Press 2 to play the game.")
-    print("Press 0 to quit the game.")
-    option = input("Enter your choice: ")
-
-    while option != "0":
-        if option == "1":
-            print("rules")
-            break
-        elif option == "2":
-            play_again = True
-            play_game()
-            while play_again:
-                # play = input(
-                #     "Would you like to play again 'y' or 'n': ").lower()
-                play = ask_yes_no("Would you like to play again 'y' or 'n': ")
-                if play == 'y':
-                    play_game()
-                else:
-                    play_again = False
-            break
-        else:
-            print("That is not an option. Choose again")
-    # show_menu()
-    # print("Press 1 to view the rules.")
-    # print("Press 2 to play the game.")
-    # print("Press 0 to quit the game.")
-    # option = input("Enter your choice: ")
-
-
 # Create user Menu allowing the user to interact with the game
 choice = None
 while choice != "0":
