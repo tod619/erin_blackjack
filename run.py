@@ -205,25 +205,27 @@ def play_game():
     # Deal cards to the player + the computer
     blackjack_deck.deal(players, 2)
 
-    print(player_hand)
-    print(computer_hand)
+    # YOU CAN DELETE THE BELOW CODE
+
+    # print(player_hand)
+    # print(computer_hand)
 
     # get player + computer hand totals
-    user_score = player_hand.hand_total()
-    computer_score = computer_hand.hand_total()
+    # user_score = player_hand.hand_total()
+    # computer_score = computer_hand.hand_total()
 
-    print(user_score)
-    print(computer_score)
+    # print(user_score)
+    # print(computer_score)
 
-    if user_score > 21:
-        is_game_over = True
-    else:
-        # user_hit = input("Type 'y' to hit or 'n' to stand: ").lower()
-        user_hit = ask_yes_no("Type 'y' to hit or 'n' to stand: ")
-        if user_hit == 'y':
-            blackjack_deck.deal([player_hand])
-        else:
-            is_game_over = True
+    # if user_score > 21:
+    #     is_game_over = True
+    # else:
+    #     # user_hit = input("Type 'y' to hit or 'n' to stand: ").lower()
+    #     user_hit = ask_yes_no("Type 'y' to hit or 'n' to stand: ")
+    #     if user_hit == 'y':
+    #         blackjack_deck.deal([player_hand])
+    #     else:
+    #         is_game_over = True
 
     # print(player_hand)
     # user_score = player_hand.hand_total()
@@ -234,6 +236,9 @@ def play_game():
     # computer_score = computer_hand.hand_total()
     # print(computer_hand)
     # print(computer_score)
+
+    # DO NOT DELETE PAST HERE
+
     while not is_game_over:
         user_score = player_hand.hand_total()
         computer_score = computer_hand.hand_total()
