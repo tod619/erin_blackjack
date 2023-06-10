@@ -272,27 +272,31 @@ def play_game():
     computer_hand.clear()
 
 
-# Create user Menu allowing the user to interact with the game
-choice = None
-while choice != "0":
-    print("Press 1 to view the rules.")
-    print("Press 2 to play the game.")
-    print("Press 0 to quit the game.")
-    choice = input("Make a choice: ")
+def display_menu():
+    # Create user Menu allowing the user to interact with the game
+    choice = None
+    while choice != "0":
+        print("Press 1 to view the rules.")
+        print("Press 2 to play the game.")
+        print("Press 0 to quit the game.")
+        choice = input("Make a choice: ")
 
-    if choice == "0":
-        print("thanks for playing.")
-    elif choice == "1":
-        print("Rules")
-    elif choice == "2":
-        play_again = True
-        play_game()
-        while play_again:
-            play = input(
-                "Would you like to play again 'y' or 'n': ").lower()
-            if play == 'y':
-                play_game()
-            else:
-                play_again = False
-    else:
-        print("sorry that is not a valid choice.")
+        if choice == "0":
+            print("thanks for playing.")
+        elif choice == "1":
+            print("Rules")
+        elif choice == "2":
+            play_again = True
+            play_game()
+            while play_again:
+                play = input(
+                    "Would you like to play again 'y' or 'n': ").lower()
+                if play == 'y':
+                    play_game()
+                else:
+                    play_again = False
+        else:
+            print("sorry that is not a valid choice.")
+
+
+display_menu()
